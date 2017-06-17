@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Intervention\Image\ImageManagerStatic;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use App\Storage\Exceptions\FileNotFoundException;
@@ -28,10 +29,13 @@ class HomeController extends BaseController
     {
         try {
             $file = $this->storage->get($args['path'])->getContents();
+
+            $image = ImageManagerStatic::make($file)->resize(100, 100);
+
         } catch (FileNotFoundException $e) {
             return $response->withStatus(404)->write($e->getMessage());
         }
-        
-        return $response->withHeader('Content-Type', 'image/jpg')->write($file);
+
+        return $response->withHeader('Content-Type', 'image/jpg')->write($image->stream());
     }
 }
