@@ -9,6 +9,7 @@ use Interop\Container\ContainerInterface;
  * @property  \Slim\Router     router
  * @property  \PDO             db
  * @property \App\Storage\S3Storage $storage
+ * @property \App\Image\Manipulator image
  */
 class BaseController
 {

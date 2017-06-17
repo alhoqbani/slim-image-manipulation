@@ -1,6 +1,7 @@
 <?php
 
 use App\Storage\S3Storage;
+use Intervention\Image\ImageManager;
 
 $container = $app->getContainer();
 
@@ -40,4 +41,10 @@ $container['storage'] = function ($c) {
     ]);
     
     return new S3Storage($client, $config);
+};
+
+$container['image'] = function ($c) {
+    $imageManger = new ImageManager();
+    
+    return new \App\Image\Manipulator($imageManger);
 };
