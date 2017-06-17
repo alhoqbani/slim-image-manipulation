@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Intervention\Image\ImageManagerStatic;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use App\Storage\Exceptions\FileNotFoundException;
@@ -29,7 +27,6 @@ class HomeController extends BaseController
      */
     public function index(ServerRequestInterface $request, ResponseInterface $response, $args)
     {
-        
         try {
             $file = $this->storage->get($args['path'])->getContents();
             $key = "image:{$args['path']}:{$_SERVER['QUERY_STRING']}";
