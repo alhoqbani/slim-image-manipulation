@@ -12,10 +12,11 @@ class Rotate extends FilterAbstract implements FilterInterface
         return $this->apply($options);
     }
     
-    public function apply($options)
+    public function apply(array $options)
     {
-        $this->image->rotate($options);
-        
-        return $this->image;
+        if ( ! is_numeric($options[0])) {
+            return false;
+        };
+        $this->image->rotate($options[0]);
     }
 }

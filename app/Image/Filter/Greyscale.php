@@ -7,12 +7,7 @@ use App\Image\Filter\Contracts\FilterInterface;
 class Greyscale extends FilterAbstract implements FilterInterface
 {
     
-    function __invoke($options)
-    {
-        return $this->apply($options);
-    }
-    
-    public function apply($options)
+    public function apply(array $options)
     {
         $this->image->greyscale();
         

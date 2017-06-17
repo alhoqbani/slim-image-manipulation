@@ -48,11 +48,9 @@ class Manipulator
     
     public function withFilters(array $filters)
     {
-        
         foreach ($filters as $filter => $options) {
             if (array_key_exists($filter, $this->availableFilters)) {
-                $filter = $this->availableFilters[$filter];
-                (new $filter($this->image))($options);
+                (new $this->availableFilters[$filter]($this->image))->apply(explode(',', $options));
             };
         }
         
