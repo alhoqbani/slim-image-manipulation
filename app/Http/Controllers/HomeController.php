@@ -9,6 +9,7 @@ use Psr\Http\Message\ServerRequestInterface;
 /**
  * @property  \Slim\Views\Twig $view
  * @property  \Slim\Router     router
+ * @property \App\Storage\S3Storage $storage
  */
 class HomeController extends BaseController
 {
@@ -24,8 +25,8 @@ class HomeController extends BaseController
      */
     public function index(ServerRequestInterface $request, ResponseInterface $response, $args)
     {
-//        $user = new User($this->db);
-//        $users = $user->getAll();
+        $file = $this->storage->get('cat.jpg');
+        dump($file);
         
         return $this->view->render($response, 'home.twig', compact('users'));
     }

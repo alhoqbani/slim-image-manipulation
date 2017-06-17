@@ -8,6 +8,7 @@ use Interop\Container\ContainerInterface;
  * @property  \Slim\Views\Twig $view
  * @property  \Slim\Router     router
  * @property  \PDO             db
+ * @property \App\Storage\S3Storage $storage
  */
 class BaseController
 {

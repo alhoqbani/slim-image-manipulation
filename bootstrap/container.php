@@ -1,5 +1,7 @@
 <?php
 
+use App\Storage\S3Storage;
+
 $container = $app->getContainer();
 
 $container['view'] = function ($c) {
@@ -24,4 +26,18 @@ $container['db'] = function ($c) {
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
     
     return $pdo;
+};
+
+$container['storage'] = function ($c) {
+    $config = $c['settings']['s3'];
+    $client = new \Aws\S3\S3Client([
+        'version'     => 'latest',
+        'region'      => $config['region'],
+        'credentials' => [
+            'key'    => $config['access_key_id'],
+            'secret' => $config['secret_access_key'],
+        ],
+    ]);
+    
+    return new S3Storage($client, $config);
 };

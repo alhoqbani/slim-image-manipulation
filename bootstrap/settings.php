@@ -22,4 +22,10 @@ return [
         'password' => getenv('DB_PASSWORD'),
         'dbname' => getenv('DB_DATABASE'),
     ],
+    's3'       => [
+        'access_key_id'     => getenv('AWS_ACCESS_KEY_ID'),
+        'secret_access_key' => getenv('AWS_SECRET_ACCESS_KEY'),
+        'region' => getenv('AWS_REGION'),
+        'bucket_name' => getenv('AWS_BUCKET_NAME')
+    ],
 ];
