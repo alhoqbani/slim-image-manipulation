@@ -35,5 +35,6 @@ return [
         'resize'     => \App\Image\Filter\Resize::class,
         'brightness' => \App\Image\Filter\Brightness::class,
         'blur'       => \App\Image\Filter\Blur::class,
+        'colorize'       => \App\Image\Filter\Colorize::class,
     ]
 ];
