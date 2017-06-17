@@ -25,9 +25,9 @@ class HomeController extends BaseController
      */
     public function index(ServerRequestInterface $request, ResponseInterface $response, $args)
     {
-        $file = $this->storage->get('cat.jpg');
-        dump($file);
+        $file = $this->storage->get('cat.jpg')->getContents();
         
+        return $response->withHeader('Content-Type', 'image/jpg')->write($file);
         return $this->view->render($response, 'home.twig', compact('users'));
     }
 }
