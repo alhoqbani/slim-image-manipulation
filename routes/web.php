@@ -7,7 +7,7 @@ use Psr\Http\Message\ServerRequestInterface;
 $app->get('/{path}', HomeController::class . ':index');
 
 $app->get('/', function (ServerRequestInterface $request, ResponseInterface $response, $args) {
-    throw new \Exception();
+
     return $response->write(
         'Welcome To Your Slim App
         <br><a href="/home">Home</a>
