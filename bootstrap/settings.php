@@ -34,5 +34,6 @@ return [
         'rotate'     => \App\Image\Filter\Rotate::class,
         'resize'     => \App\Image\Filter\Resize::class,
         'brightness' => \App\Image\Filter\Brightness::class,
+        'blur'       => \App\Image\Filter\Blur::class,
     ]
 ];
