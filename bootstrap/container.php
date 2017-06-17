@@ -57,7 +57,7 @@ $container['cache'] = function ($c) {
         'scheme'   => 'tcp',
         'host'     => $config['host'],
         'port'     => $config['port'],
-        'password' => $config['password'],
+        'password' => ($config['password'] == 'NULL') ? null : $config['password'],
     ]);
     
     return new \App\Cache\RedisAdapter($client);
