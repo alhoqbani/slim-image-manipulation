@@ -21,4 +21,14 @@ abstract class FilterAbstract
     {
         $this->image = $image;
     }
+    
+    protected function notInRange($value, $min, $max)
+    {
+        if ( ! is_numeric($value)) {
+            return false;
+        }
+        
+        return ($value < $min || $value > $max);
+    }
+    
 }

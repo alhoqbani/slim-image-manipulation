@@ -30,8 +30,9 @@ return [
     ],
     
     'image_filters' => [
-        'greyscale' => \App\Image\Filter\Greyscale::class,
-        'rotate' => \App\Image\Filter\Rotate::class,
-        'resize' => \App\Image\Filter\Resize::class,
+        'greyscale'  => \App\Image\Filter\Greyscale::class,
+        'rotate'     => \App\Image\Filter\Rotate::class,
+        'resize'     => \App\Image\Filter\Resize::class,
+        'brightness' => \App\Image\Filter\Brightness::class,
     ]
 ];
