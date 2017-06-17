@@ -50,7 +50,8 @@ class Manipulator
     {
         foreach ($filters as $filter => $options) {
             if (array_key_exists($filter, $this->availableFilters)) {
-                (new $this->availableFilters[$filter]($this->image))->apply(explode(',', $options));
+                $this->image = (new $this->availableFilters[$filter]($this->image))
+                    ->apply(explode(',', $options));
             };
         }
         
