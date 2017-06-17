@@ -39,5 +39,6 @@ return [
         'crop'       => \App\Image\Filter\Crop::class,
         'invert'     => \App\Image\Filter\Invert::class,
         'flip'       => \App\Image\Filter\Flip::class,
+        'opacity'       => \App\Image\Filter\Opacity::class,
     ],
 ];
