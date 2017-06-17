@@ -25,7 +25,7 @@ abstract class FilterAbstract
     protected function notInRange($value, $min, $max)
     {
         if ( ! is_numeric($value)) {
-            return false;
+            return true;
         }
         
         return ($value < $min || $value > $max);

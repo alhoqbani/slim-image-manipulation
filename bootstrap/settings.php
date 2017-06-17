@@ -36,5 +36,6 @@ return [
         'brightness' => \App\Image\Filter\Brightness::class,
         'blur'       => \App\Image\Filter\Blur::class,
         'colorize'       => \App\Image\Filter\Colorize::class,
+        'contrast'       => \App\Image\Filter\Contrast::class,
     ]
 ];
