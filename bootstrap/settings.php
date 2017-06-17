@@ -3,9 +3,9 @@ return [
     'displayErrorDetails' => true,
     
     'app' => [
-      'name' => getenv('APP_NAME'),
-      'url' => getenv('APP_URL'),
-      'env' => getenv('APP_ENV'),
+        'name' => getenv('APP_NAME'),
+        'url'  => getenv('APP_URL'),
+        'env'  => getenv('APP_ENV'),
     ],
     
     'twig' => [
@@ -20,13 +20,13 @@ return [
         'port'     => getenv('DB_PORT'),
         'username' => getenv('DB_USERNAME'),
         'password' => getenv('DB_PASSWORD'),
-        'dbname' => getenv('DB_DATABASE'),
+        'dbname'   => getenv('DB_DATABASE'),
     ],
     's3'       => [
         'access_key_id'     => getenv('AWS_ACCESS_KEY_ID'),
         'secret_access_key' => getenv('AWS_SECRET_ACCESS_KEY'),
-        'region' => getenv('AWS_REGION'),
-        'bucket_name' => getenv('AWS_BUCKET_NAME')
+        'region'            => getenv('AWS_REGION'),
+        'bucket_name'       => getenv('AWS_BUCKET_NAME'),
     ],
     
     'image_filters' => [
@@ -35,7 +35,9 @@ return [
         'resize'     => \App\Image\Filter\Resize::class,
         'brightness' => \App\Image\Filter\Brightness::class,
         'blur'       => \App\Image\Filter\Blur::class,
-        'colorize'       => \App\Image\Filter\Colorize::class,
+        'colorize'   => \App\Image\Filter\Colorize::class,
         'crop'       => \App\Image\Filter\Crop::class,
-    ]
+        'invert'     => \App\Image\Filter\Invert::class,
+        'flip'       => \App\Image\Filter\Flip::class,
+    ],
 ];
