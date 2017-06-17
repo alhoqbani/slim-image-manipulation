@@ -44,7 +44,9 @@ $container['storage'] = function ($c) {
 };
 
 $container['image'] = function ($c) {
-    $imageManger = new ImageManager();
+    $imageManger = new ImageManager([
+//        'driver' => 'imagick'
+    ]);
     
     return new \App\Image\Manipulator($imageManger, $c['settings']['image_filters']);
 };
