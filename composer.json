@@ -10,7 +10,8 @@
         "vlucas/phpdotenv": "^2.4",
         "aws/aws-sdk-php": "^3.29",
         "Intervention/image": "^2.3",
-        "predis/predis": "^1.1"
+        "predis/predis": "^1.1",
+        "ext-gd": "*"
     },
     "autoload": {
         "psr-4": {
