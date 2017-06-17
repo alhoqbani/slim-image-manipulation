@@ -29,15 +29,19 @@ class HomeController extends BaseController
      */
     public function index(ServerRequestInterface $request, ResponseInterface $response, $args)
     {
+        
         try {
             $file = $this->storage->get($args['path'])->getContents();
+            $key = "image:{$args['path']}:{$_SERVER['QUERY_STRING']}";
             
-            $image = $this->image->load($file)->withFilters($request->getParams());
+            $image = $this->cache->remember($key, null, function () use ($file, $request) {
+                return $this->image->load($file)->withFilters($request->getParams())->stream();
+            });
             
         } catch (FileNotFoundException $e) {
             return $response->withStatus(404)->write($e->getMessage());
         }
         
-        return $response->withHeader('Content-Type', 'image/jpg')->write($image->stream());
+        return $response->withHeader('Content-Type', 'image/jpg')->write($image);
     }
 }
