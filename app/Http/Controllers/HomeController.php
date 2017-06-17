@@ -31,10 +31,9 @@ class HomeController extends BaseController
             $file = $this->storage->get($args['path'])->getContents();
             $key = "image:{$args['path']}:{$_SERVER['QUERY_STRING']}";
             
-//            $image = $this->cache->remember($key, null, function () use ($file, $request) {
-//                return $this->image->load($file)->withFilters($request->getParams())->stream();
-//            });
-            $image = $this->image->load($file)->withFilters($request->getParams())->stream();
+            $image = $this->cache->remember($key, null, function () use ($file, $request) {
+                return $this->image->load($file)->withFilters($request->getParams())->stream();
+            });
             
         } catch (FileNotFoundException $e) {
             return $response->withStatus(404)->write($e->getMessage());
