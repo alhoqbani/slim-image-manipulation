@@ -40,5 +40,7 @@ return [
         'invert'     => \App\Image\Filter\Invert::class,
         'flip'       => \App\Image\Filter\Flip::class,
         'opacity'       => \App\Image\Filter\Opacity::class,
+        'pixelate'       => \App\Image\Filter\Pixelate::class,
+        'sharpen'       => \App\Image\Filter\Sharpen::class,
     ],
 ];
