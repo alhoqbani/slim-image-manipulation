@@ -27,7 +27,7 @@ class HomeController extends BaseController
     public function index(ServerRequestInterface $request, ResponseInterface $response, $args)
     {
         try {
-            $file = $this->storage->get('cat.jpg')->getContents();
+            $file = $this->storage->get($args['path'])->getContents();
         } catch (FileNotFoundException $e) {
             return $response->withStatus(404)->write($e->getMessage());
         }
