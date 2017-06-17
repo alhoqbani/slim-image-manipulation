@@ -1,6 +1,6 @@
 <?php
 return [
-    'displayErrorDetails' => true,
+    'displayErrorDetails' => (getenv('APP_DEBUG') === 'true') ?: false,
     
     'app' => [
         'name' => getenv('APP_NAME'),
@@ -30,9 +30,9 @@ return [
     ],
     
     'redis' => [
-      'host' => getenv('REDIS_HOST'),
-      'port' => getenv('REDIS_PORT'),
-      'password' => getenv('REDIS_PASSWORD'),
+        'host'     => getenv('REDIS_HOST'),
+        'port'     => getenv('REDIS_PORT'),
+        'password' => getenv('REDIS_PASSWORD'),
     ],
     
     'image_filters' => [
@@ -45,8 +45,8 @@ return [
         'crop'       => \App\Image\Filter\Crop::class,
         'invert'     => \App\Image\Filter\Invert::class,
         'flip'       => \App\Image\Filter\Flip::class,
-        'opacity'       => \App\Image\Filter\Opacity::class,
-        'pixelate'       => \App\Image\Filter\Pixelate::class,
-        'sharpen'       => \App\Image\Filter\Sharpen::class,
+        'opacity'    => \App\Image\Filter\Opacity::class,
+        'pixelate'   => \App\Image\Filter\Pixelate::class,
+        'sharpen'    => \App\Image\Filter\Sharpen::class,
     ],
 ];
