@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use App\Storage\Exceptions\FileNotFoundException;
 
 /**
- * @property  \Slim\Views\Twig $view
- * @property  \Slim\Router     router
+ * @property  \Slim\Views\Twig      $view
+ * @property  \Slim\Router          router
  * @property \App\Storage\S3Storage $storage
  */
 class HomeController extends BaseController
@@ -25,9 +26,12 @@ class HomeController extends BaseController
      */
     public function index(ServerRequestInterface $request, ResponseInterface $response, $args)
     {
-        $file = $this->storage->get('cat.jpg')->getContents();
+        try {
+            $file = $this->storage->get('cat.jpg')->getContents();
+        } catch (FileNotFoundException $e) {
+            return $response->withStatus(404)->write($e->getMessage());
+        }
         
         return $response->withHeader('Content-Type', 'image/jpg')->write($file);
-        return $this->view->render($response, 'home.twig', compact('users'));
     }
 }
