@@ -29,6 +29,12 @@ return [
         'bucket_name'       => getenv('AWS_BUCKET_NAME'),
     ],
     
+    'redis' => [
+      'host' => getenv('REDIS_HOST'),
+      'port' => getenv('REDIS_PORT'),
+      'password' => getenv('REDIS_PASSWORD'),
+    ],
+    
     'image_filters' => [
         'greyscale'  => \App\Image\Filter\Greyscale::class,
         'rotate'     => \App\Image\Filter\Rotate::class,

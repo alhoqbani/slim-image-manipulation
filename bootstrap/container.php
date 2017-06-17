@@ -50,3 +50,15 @@ $container['image'] = function ($c) {
     
     return new \App\Image\Manipulator($imageManger, $c['settings']['image_filters']);
 };
+
+$container['cache'] = function ($c) {
+    $config = $c['settings']['redis'];
+    $client = new Predis\Client([
+        'scheme'   => 'tcp',
+        'host'     => $config['host'],
+        'port'     => $config['port'],
+        'passowrd' => $config['password'],
+    ]);
+    
+    return new \App\Cache\RedisAdapter($client);
+};

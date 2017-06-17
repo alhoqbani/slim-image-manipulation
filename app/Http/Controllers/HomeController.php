@@ -9,10 +9,11 @@ use Psr\Http\Message\ServerRequestInterface;
 use App\Storage\Exceptions\FileNotFoundException;
 
 /**
- * @property  \Slim\Views\Twig      $view
- * @property  \Slim\Router          router
- * @property \App\Storage\S3Storage $storage
- * @property \App\Image\Manipulator image
+ * @property  \Slim\Views\Twig         $view
+ * @property  \Slim\Router             router
+ * @property \App\Storage\S3Storage    $storage
+ * @property \App\Image\Manipulator    image
+ * @property \App\Cache\CacheInterface cache
  */
 class HomeController extends BaseController
 {
