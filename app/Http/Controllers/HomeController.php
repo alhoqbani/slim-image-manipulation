@@ -31,7 +31,7 @@ class HomeController extends BaseController
         try {
             $file = $this->storage->get($args['path'])->getContents();
             
-            $image = $this->image->load($file);
+            $image = $this->image->load($file)->withFilters($request->getParams());
             
         } catch (FileNotFoundException $e) {
             return $response->withStatus(404)->write($e->getMessage());

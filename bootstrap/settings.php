@@ -28,4 +28,9 @@ return [
         'region' => getenv('AWS_REGION'),
         'bucket_name' => getenv('AWS_BUCKET_NAME')
     ],
+    
+    'image_filters' => [
+        'greyscale' => \App\Image\Filter\Greyscale::class,
+        'rotate' => \App\Image\Filter\Rotate::class,
+    ]
 ];

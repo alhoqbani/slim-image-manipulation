@@ -46,5 +46,5 @@ $container['storage'] = function ($c) {
 $container['image'] = function ($c) {
     $imageManger = new ImageManager();
     
-    return new \App\Image\Manipulator($imageManger);
+    return new \App\Image\Manipulator($imageManger, $c['settings']['image_filters']);
 };
